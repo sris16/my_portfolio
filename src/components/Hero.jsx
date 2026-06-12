@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Mail, ArrowRight, FileText } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { Github, Linkedin } from "./Icons";
+import profileImg from "../assets/profile.png";
 
 export default function Hero() {
   const roles = [
@@ -70,7 +71,7 @@ export default function Hero() {
       <div className="hero-glow-node-1"></div>
       <div className="hero-glow-node-2"></div>
 
-      <div className="container">
+      <div className="container hero-container">
         <div className="hero-content">
           <div className="hero-greeting">Hi, my name is</div>
           <h1 className="hero-title">
@@ -140,6 +141,12 @@ export default function Hero() {
             >
               <Mail size={18} />
             </a>
+          </div>
+        </div>
+
+        <div className="hero-image-wrapper">
+          <div className="hero-image-frame">
+            <img src={profileImg} alt="Srisakthi R" className="hero-image" />
           </div>
         </div>
       </div>

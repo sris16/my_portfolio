@@ -449,10 +449,65 @@ ul {
   background-color: var(--hero-glow-2);
 }
 
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 750px;
+  max-width: 100%;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.hero-image-frame {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box, var(--accent-gradient) border-box;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 40px var(--accent-glow);
+  overflow: hidden;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.hero-image-frame:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 50px rgba(99, 102, 241, 0.4);
+  transform: scale(1.03);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.hero-image-frame:hover .hero-image {
+  transform: scale(1.08);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .hero-greeting {
@@ -1080,6 +1135,33 @@ ul {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================== */
 @media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    justify-items: center;
+  }
+  
+  .hero-content {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-image-wrapper {
+    grid-row: 1;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-image-frame {
+    width: 260px;
+    height: 260px;
+  }
+
   .about-grid, .skills-achievements-grid, .contact-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
