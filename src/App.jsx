@@ -25,6 +25,20 @@ function App() {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Track scroll depth
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress((window.scrollY / totalScroll) * 100);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Scroll reveal animation observer
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
@@ -51,6 +65,7 @@ function App() {
 
   return (
     <>
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
