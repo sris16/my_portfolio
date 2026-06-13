@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Mail, ArrowRight } from "lucide-react";
 import { Github, Linkedin } from "./Icons";
 import profileImg from "../assets/profile.png";
+import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
   const roles = [
@@ -68,6 +69,7 @@ export default function Hero() {
     <section id="home" className="hero-section">
       {/* Background decorations */}
       <div className="cyber-grid"></div>
+      <ParticleBackground />
       <div className="hero-glow-node-1"></div>
       <div className="hero-glow-node-2"></div>
 

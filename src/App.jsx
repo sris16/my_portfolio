@@ -6,9 +6,15 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import PageLoader from './components/PageLoader';
 import './App.css';
 
 function App() {
+  // Page loading state
+  const [isLoading, setIsLoading] = useState(() => {
+    return sessionStorage.getItem("portfolio_loaded") !== "true";
+  });
+
   // Theme state defaulting to 'dark'
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -29,6 +35,7 @@ function App() {
 
   // Track scroll depth
   useEffect(() => {
+    if (isLoading) return;
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (totalScroll > 0) {
@@ -37,31 +44,35 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isLoading]);
 
   // Scroll reveal animation observer
   useEffect(() => {
+    if (isLoading) return;
     const revealElements = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            // Once revealed, we can unobserve if we want animations to trigger only once
             observer.unobserve(entry.target);
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px' // Trigger slightly before element is fully in view
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
     revealElements.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isLoading]);
+
+  if (isLoading) {
+    return <PageLoader onComplete={() => setIsLoading(false)} />;
+  }
 
   return (
     <>
