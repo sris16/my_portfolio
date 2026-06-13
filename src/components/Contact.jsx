@@ -14,27 +14,58 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setStatus('error');
       return;
     }
     
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error("VITE_WEB3FORMS_ACCESS_KEY is missing in your environment configuration.");
+      setStatus('config-error');
+      return;
+    }
+
     setStatus('submitting');
     
-    // Simulate API request
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || "New Message from Portfolio",
+          message: formData.message,
+          from_name: `${formData.name} (via Portfolio)`
+        })
       });
-      // Clear success banner after 5 seconds
-      setTimeout(() => setStatus(null), 5000);
-    }, 1200);
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        console.error("Web3Forms response error:", data);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Web3Forms submit error:", error);
+      setStatus('error');
+    }
+
+    setTimeout(() => setStatus(null), 6000);
   };
 
   return (
@@ -172,7 +203,12 @@ export default function Contact() {
             )}
             {status === 'error' && (
               <div className="form-status error">
-                Please fill in all the required fields correctly.
+                Something went wrong. Please check your network and try again.
+              </div>
+            )}
+            {status === 'config-error' && (
+              <div className="form-status error" style={{ borderColor: '#f59e0b', color: '#f59e0b' }}>
+                Form is not configured. Please add VITE_WEB3FORMS_ACCESS_KEY to your env settings.
               </div>
             )}
 

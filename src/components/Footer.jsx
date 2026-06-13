@@ -27,7 +27,7 @@ export default function Footer() {
             <Github size={18} />
           </a>
           <a 
-            href="https://linkedin.com/in/srisakthi-r" 
+            href="https://www.linkedin.com/in/srisakthi-r-89858b342?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
             target="_blank" 
             rel="noreferrer" 
             className="footer-social-link"
