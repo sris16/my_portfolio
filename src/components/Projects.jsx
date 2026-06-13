@@ -71,8 +71,20 @@ export default function Projects() {
     : projectsData.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="section reveal">
-      <div className="container">
+    <section id="projects" className="section reveal" style={{ position: 'relative' }}>
+      {/* Background decorations */}
+      <div className="section-anim-bg">
+        <span className="float-bracket" style={{ left: '5%', fontSize: '1.8rem', animationDelay: '0s', animationDuration: '20s' }}>{"{"}</span>
+        <span className="float-bracket" style={{ left: '20%', fontSize: '2rem', animationDelay: '3s', animationDuration: '24s' }}>{"}"}</span>
+        <span className="float-bracket" style={{ left: '38%', fontSize: '1.6rem', animationDelay: '7s', animationDuration: '18s' }}>{"["}</span>
+        <span className="float-bracket" style={{ left: '55%', fontSize: '1.8rem', animationDelay: '2s', animationDuration: '22s' }}>{"]"}</span>
+        <span className="float-bracket" style={{ left: '72%', fontSize: '2.2rem', animationDelay: '9s', animationDuration: '26s' }}>{"</>"}</span>
+        <span className="float-bracket" style={{ left: '88%', fontSize: '1.7rem', animationDelay: '5s', animationDuration: '21s' }}>{"=>"}</span>
+        <span className="float-bracket" style={{ left: '48%', fontSize: '1.9rem', animationDelay: '12s', animationDuration: '25s' }}>{"&&"}</span>
+        <span className="float-bracket" style={{ left: '95%', fontSize: '2.1rem', animationDelay: '4s', animationDuration: '23s' }}>{"||"}</span>
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header">
           <h2 className="section-title">My Projects</h2>
           <p className="section-subtitle">A collection of academic, hackathon, and side projects showcasing my development skills.</p>

@@ -51,8 +51,23 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="section reveal">
-      <div className="container">
+    <section id="skills" className="section reveal" style={{ position: 'relative' }}>
+      {/* Background decorations */}
+      <div className="section-anim-bg">
+        <div className="synapse-node" style={{ left: '15%', top: '30%', animationDelay: '0s' }}></div>
+        <div className="synapse-connection" style={{ left: '15%', top: '30%', width: '120px', transform: 'rotate(15deg)' }}></div>
+
+        <div className="synapse-node" style={{ left: '35%', top: '70%', animationDelay: '1.5s' }}></div>
+        <div className="synapse-connection" style={{ left: '35%', top: '70%', width: '90px', transform: 'rotate(-45deg)' }}></div>
+
+        <div className="synapse-node" style={{ left: '60%', top: '25%', animationDelay: '0.8s' }}></div>
+        <div className="synapse-connection" style={{ left: '60%', top: '25%', width: '150px', transform: 'rotate(30deg)' }}></div>
+
+        <div className="synapse-node" style={{ left: '80%', top: '65%', animationDelay: '2.2s' }}></div>
+        <div className="synapse-connection" style={{ left: '80%', top: '65%', width: '80px', transform: 'rotate(120deg)' }}></div>
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header">
           <h2 className="section-title">Skills & Achievements</h2>
           <p className="section-subtitle">A summary of my technical toolkit and co-curricular accomplishments.</p>

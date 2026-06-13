@@ -35,8 +35,20 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section reveal">
-      <div className="container">
+    <section id="about" className="section reveal" style={{ position: 'relative' }}>
+      {/* Background decorations */}
+      <div className="section-anim-bg">
+        <span className="float-symbol" style={{ left: '5%', fontSize: '1.2rem', animationDelay: '0s', animationDuration: '14s' }}>∑</span>
+        <span className="float-symbol" style={{ left: '20%', fontSize: '1.5rem', animationDelay: '2s', animationDuration: '16s' }}>√</span>
+        <span className="float-symbol" style={{ left: '38%', fontSize: '1rem', animationDelay: '5s', animationDuration: '12s' }}>f(x)</span>
+        <span className="float-symbol" style={{ left: '55%', fontSize: '1.4rem', animationDelay: '1s', animationDuration: '15s' }}>λ</span>
+        <span className="float-symbol" style={{ left: '72%', fontSize: '1.1rem', animationDelay: '6s', animationDuration: '13s' }}>π</span>
+        <span className="float-symbol" style={{ left: '88%', fontSize: '1.3rem', animationDelay: '3s', animationDuration: '17s' }}>01</span>
+        <span className="float-symbol" style={{ left: '48%', fontSize: '1.2rem', animationDelay: '7s', animationDuration: '14s' }}>dy/dx</span>
+        <span className="float-symbol" style={{ left: '95%', fontSize: '1.5rem', animationDelay: '4s', animationDuration: '18s' }}>θ</span>
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header">
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">A summary of my background, academic path, and professional drive.</p>

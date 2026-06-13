@@ -38,8 +38,16 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section reveal">
-      <div className="container">
+    <section id="contact" className="section reveal" style={{ position: 'relative' }}>
+      {/* Background decorations */}
+      <div className="section-anim-bg">
+        <div className="contact-ripple" style={{ left: '20%', top: '50%', animationDelay: '0s' }}></div>
+        <div className="contact-ripple" style={{ left: '20%', top: '50%', animationDelay: '4s' }}></div>
+        <div className="contact-ripple" style={{ left: '80%', top: '40%', animationDelay: '2s' }}></div>
+        <div className="contact-ripple" style={{ left: '80%', top: '40%', animationDelay: '6s' }}></div>
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="section-header">
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">Feel free to reach out for projects, collaboration, or academic questions.</p>

@@ -1506,3 +1506,134 @@ ul {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
 }
+
+/* ==========================================
+   SECTION BACKGROUND ANIMATIONS
+   ========================================== */
+.section-anim-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Math/Data symbols (About) */
+.float-symbol {
+  position: absolute;
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--accent-primary);
+  opacity: 0;
+  user-select: none;
+  animation: floatUp 15s infinite linear;
+}
+
+@keyframes floatUp {
+  0% {
+    top: 105%;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.18;
+  }
+  90% {
+    opacity: 0.18;
+  }
+  100% {
+    top: -10%;
+    transform: translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Floating Code Brackets (Projects) */
+.float-bracket {
+  position: absolute;
+  font-family: monospace;
+  font-size: 2.2rem;
+  color: var(--accent-secondary);
+  opacity: 0;
+  user-select: none;
+  animation: floatDiagonal 20s infinite ease-in-out;
+}
+
+@keyframes floatDiagonal {
+  0% {
+    top: 105%;
+    transform: translateX(0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.18;
+  }
+  90% {
+    opacity: 0.18;
+  }
+  50% {
+    transform: translateX(60px) rotate(180deg) scale(1.2);
+  }
+  100% {
+    top: -10%;
+    transform: translateX(120px) rotate(360deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+/* Synapse Nodes (Skills) */
+.synapse-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-primary);
+  animation: synapsePulse 3s infinite ease-in-out;
+}
+
+.synapse-connection {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), transparent);
+  opacity: 0.22;
+}
+
+@keyframes synapsePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+    box-shadow: 0 0 10px var(--accent-primary);
+  }
+  50% {
+    transform: scale(1.8);
+    opacity: 0.85;
+    box-shadow: 0 0 20px var(--accent-primary);
+  }
+}
+
+/* Communication Ripples (Contact) */
+.contact-ripple {
+  position: absolute;
+  border: 1.5px solid var(--accent-secondary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: rippleOut 6s infinite ease-out;
+}
+
+@keyframes rippleOut {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.35;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    width: 900px;
+    height: 900px;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
