@@ -21,10 +21,15 @@ function App() {
     return savedTheme || 'dark';
   });
 
-  // Apply theme class to HTML node
+  // Apply theme class to HTML node with transition class
   useEffect(() => {
+    document.documentElement.classList.add('theme-transitioning');
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    const timer = setTimeout(() => {
+      document.documentElement.classList.remove('theme-transitioning');
+    }, 500);
+    return () => clearTimeout(timer);
   }, [theme]);
 
   const toggleTheme = () => {
