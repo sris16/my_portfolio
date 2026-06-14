@@ -1,30 +1,6 @@
 import { GraduationCap, Calendar, MapPin, Award, CheckCircle2 } from 'lucide-react';
 
 export default function About() {
-  const timelineData = [
-    {
-      title: "B.Sc. Artificial Intelligence & Machine Learning",
-      institution: "KPR College of Arts Science and Research",
-      period: "2024 – Present",
-      location: "Coimbatore, Tamil Nadu",
-      description: "Focusing on core AI/ML subjects including Python programming, data science foundation, basic machine learning algorithms, and full-stack software development. Currently holding a CGPA of 7.2/10 up to Semester 3."
-    },
-    {
-      title: "Higher Secondary Certificate (HSC)",
-      institution: "SRNV Higher Secondary School",
-      period: "Passed out 2024",
-      location: "Coimbatore, Tamil Nadu",
-      description: "Completed secondary education specializing in Science and Mathematics track with a grade of 80%."
-    },
-    {
-      title: "Secondary School Leaving Certificate (SSLC)",
-      institution: "Sree Dharmashastha Matriculation Higher Secondary School",
-      period: "Passed out 2022",
-      location: "Saravanampatti, Coimbatore, Tamil Nadu",
-      description: "Completed general secondary school coursework with a score of 84%."
-    }
-  ];
-
   const softSkills = [
     "Communication",
     "Teamwork & Collaboration",
@@ -88,32 +64,52 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column: Academic Timeline */}
+          {/* Right Column: Academic Profile */}
           <div>
             <h3 className="timeline-title" style={{ fontSize: '1.5rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <GraduationCap size={24} style={{ color: 'var(--accent-primary)' }} />
               Education
             </h3>
             
-            <div className="timeline">
-              {timelineData.map((item, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="timeline-dot"></div>
-                  <div className="timeline-header">
-                    <h4 className="timeline-title">{item.title}</h4>
-                    <span className="timeline-subtitle">{item.institution}</span>
-                    <div className="timeline-meta">
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                        <Calendar size={14} /> {item.period}
-                      </span>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                        <MapPin size={14} /> {item.location}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="timeline-desc">{item.description}</p>
+            <div className="education-card glass-panel" style={{ padding: '1.75rem', borderRadius: '12px', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div>
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                    B.Sc. Artificial Intelligence & Machine Learning
+                  </h4>
+                  <span style={{ fontSize: '0.95rem', color: 'var(--accent-secondary)', fontWeight: 500 }}>
+                    KPR College of Arts Science and Research
+                  </span>
                 </div>
-              ))}
+                <span className="badge badge-outline" style={{ borderColor: 'var(--accent-primary)', color: 'var(--accent-primary)', fontWeight: 600 }}>
+                  Active Candidate
+                </span>
+              </div>
+
+              <div className="timeline-meta" style={{ display: 'flex', gap: '1.25rem', color: '#9ca3af', fontSize: '0.85rem' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <Calendar size={14} /> 2024 – Present
+                </span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  <MapPin size={14} /> Coimbatore, Tamil Nadu
+                </span>
+              </div>
+
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.6', margin: '0.5rem 0' }}>
+                Focusing on core AI/ML subjects including Python programming, data science foundation, basic machine learning algorithms, and full-stack software development. Currently holding a CGPA of 7.2/10 up to Semester 3.
+              </p>
+
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '1rem', marginTop: '0.5rem' }}>
+                <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#9ca3af', fontWeight: 600, display: 'block', marginBottom: '0.5rem' }}>
+                  Core Curriculum Focus:
+                </span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <span className="badge badge-outline">Data Structures</span>
+                  <span className="badge badge-outline">Python & Java OOP</span>
+                  <span className="badge badge-outline">Machine Learning Fundamentals</span>
+                  <span className="badge badge-outline">Full-Stack Web Dev</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
