@@ -59,7 +59,7 @@ export default function Navbar({ theme, toggleTheme }) {
           {/* Theme Toggle Button */}
           <button
             className="theme-toggle"
-            onClick={toggleTheme}
+            onClick={(e) => toggleTheme(e)}
             aria-label="Toggle theme"
             title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
