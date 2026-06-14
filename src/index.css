@@ -91,18 +91,32 @@ html[data-theme='light'] {
   --bg-contact: #f8fafc;
 }
 
-/* Smooth theme transition */
-.theme-transitioning,
-.theme-transitioning *,
-.theme-transitioning *::before,
-.theme-transitioning *::after {
-  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              fill 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              stroke 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* Circular Reveal View Transition (Telegram-style) */
+::view-transition-image-pair(root) {
+  isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+  mix-blend-mode: normal !important;
+  display: block;
+}
+
+/* Grow transition styles: new view is on top */
+[data-transition-direction="grow"]::view-transition-new(root) {
+  z-index: 9999;
+}
+[data-transition-direction="grow"]::view-transition-old(root) {
+  z-index: 1;
+}
+
+/* Shrink transition styles: old view is on top */
+[data-transition-direction="shrink"]::view-transition-new(root) {
+  z-index: 1;
+}
+[data-transition-direction="shrink"]::view-transition-old(root) {
+  z-index: 9999;
 }
 
 /* ==========================================
