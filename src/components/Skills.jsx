@@ -1,16 +1,21 @@
-import { Code2, Laptop, Wrench, Trophy, Award, Calendar, Sparkles } from 'lucide-react';
+import { Code2, Laptop, Wrench, Trophy, Award, Calendar, Sparkles, Database } from 'lucide-react';
 
 export default function Skills() {
   const skillCategories = [
     {
       title: "Programming Languages",
       icon: <Code2 size={20} className="skill-icon" />,
-      skills: ["Java", "Python", "SQL"]
+      skills: ["Java", "SQL"]
     },
     {
       title: "Web Technologies",
       icon: <Laptop size={20} className="skill-icon" />,
       skills: ["HTML5", "CSS3", "React.js", "Node.js", "Express.js"]
+    },
+    {
+      title: "Database",
+      icon: <Database size={20} className="skill-icon" />,
+      skills: ["MySQL", "MongoDB"]
     },
     {
       title: "Tools & Platforms",

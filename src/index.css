@@ -83,11 +83,11 @@ html[data-theme='light'] {
   --hero-glow-1: rgba(99, 102, 241, 0.08);
   --hero-glow-2: rgba(20, 184, 166, 0.08);
   
-  --bg-home: linear-gradient(135deg, #eef2ff 0%, #e0f2fe 100%);
-  --bg-about: #f0fdf4;
-  --bg-projects: #faf5ff;
-  --bg-skills: #fefaf0;
-  --bg-contact: #ecfeff;
+  --bg-home: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+  --bg-about: #ffffff;
+  --bg-projects: #f8fafc;
+  --bg-skills: #ffffff;
+  --bg-contact: #f8fafc;
 }
 
 /* ==========================================

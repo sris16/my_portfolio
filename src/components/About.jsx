@@ -104,9 +104,9 @@ export default function About() {
                   Core Curriculum Focus:
                 </span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  <span className="badge badge-outline">Java</span>
                   <span className="badge badge-outline">Data Structures</span>
-                  <span className="badge badge-outline">Python & Java OOP</span>
-                  <span className="badge badge-outline">Machine Learning Fundamentals</span>
+                  <span className="badge badge-outline">SQL</span>
                   <span className="badge badge-outline">Full-Stack Web Dev</span>
                 </div>
               </div>
